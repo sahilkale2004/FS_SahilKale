@@ -1,6 +1,3 @@
-# FS_SahilKale
-Student commute optimizer (full Stack)
-
 # Student Commute Optimizer
 
 ## 1. Summary 
