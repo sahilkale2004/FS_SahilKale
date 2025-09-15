@@ -50,7 +50,7 @@ Student commute optimizer (full Stack)
 
 
 
-## 5. PostGIS schema (Pseudocode)
+## 5. PostGIS schema (Pseudocode) This will be used as backend
 
 ```// User flow
 FUNCTION createUser(college_id, pseudonym, real_name, profile_meta):
@@ -107,7 +107,7 @@ FUNCTION joinTrip(trip_id, user_id):
 ---
 
 
-## 6. Key PostGIS queries (core matching) 
+## 6. Key PostGIS queries (core matching) This will be used to find nearby matches for the student 
 
 **Find candidates within corridor (\~500 meters)**
 
@@ -150,7 +150,7 @@ FUNCTION computeOverlapRatio(tripA_id, tripB_id):
 
 ---
 
-## 7. Compact matching pseudocode
+## 7. Compact matching pseudocode  This is used to find matches for the students
 
 ```
 FUNCTION findMatches(trip_id):
