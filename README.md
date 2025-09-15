@@ -11,7 +11,7 @@ Student commute optimizer (full Stack)
 
 ---
 
-## 2. Architecture — visual (ASCII)
+## 2. Architecture — visual
 
 <img width="577" height="463" alt="image" src="https://github.com/user-attachments/assets/ef717001-5ca1-400e-807a-59dded405ca6" />
 
@@ -50,7 +50,7 @@ Student commute optimizer (full Stack)
 
 
 
-## 5. PostGIS schema (Pseudocode) This will be used as backend
+## 5. PostGIS schema (Pseudocode)    This will be used as backend
 
 ```// User flow
 FUNCTION createUser(college_id, pseudonym, real_name, profile_meta):
@@ -107,7 +107,7 @@ FUNCTION joinTrip(trip_id, user_id):
 ---
 
 
-## 6. Key PostGIS queries (core matching) This will be used to find nearby matches for the student 
+## 6. Key PostGIS queries (core matching)    This will be used to find nearby matches for the student 
 
 **Find candidates within corridor (\~500 meters)**
 
@@ -150,7 +150,7 @@ FUNCTION computeOverlapRatio(tripA_id, tripB_id):
 
 ---
 
-## 7. Compact matching pseudocode  This is used to find matches for the students
+## 7. Compact matching pseudocode    This is used to find matches for the students
 
 ```
 FUNCTION findMatches(trip_id):
