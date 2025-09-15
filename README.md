@@ -39,18 +39,21 @@ Student commute optimizer (full Stack)
 
 <img width="426" height="412" alt="image" src="https://github.com/user-attachments/assets/96b01ab9-f816-4c05-875f-2972136d4495" />
 
-
+---
+---
 
 
  
 
 **Storyboard (3 panels)**
+---
 
 <img width="615" height="367" alt="image" src="https://github.com/user-attachments/assets/ca08cad8-fee1-45f3-b712-13445f31ab86" />
 
 ---
+---
 
-## 5. PostGIS schema 
+## 5. PostGIS schema (Pseudocode)
 
 ```// User flow
 FUNCTION createUser(college_id, pseudonym, real_name, profile_meta):
@@ -200,10 +203,8 @@ FUNCTION findMatches(trip_id):
 
 * If routes overlap 50% (0.5), time window overlap 0.8, proximity 0.5 → `score = 0.6*0.5 + 0.3*0.8 + 0.1*0.5 = 0.3 + 0.24 + 0.05 = 0.59` — a strong match.
 * Judges will appreciate a clear threshold rationale (e.g. `>0.35` accepts reasonable detours but avoids weak matches).
-
 ```
 ---
-
 ```
 
 ## 9. Safety & privacy 
@@ -212,6 +213,5 @@ FUNCTION findMatches(trip_id):
 * **Minimal location sharing:** discovery coordinates rounded to 50m to avoid precise tracking.
 * **Mutual reveal:** identity only revealed when both parties explicitly consent.
 * **Moderation:** one-click reporting, automated filters, manual review pipeline.
-
 ```
 
