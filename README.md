@@ -49,14 +49,7 @@
 
 ## 5. PostGIS schema (Pseudocode)    This will be used as backend
 
-To find potential matches for a user's trip, you can use the following pseudo-code, which leverages the spatial indexing and functions provided by PostGIS. This process identifies other trips that share a significant portion of the same route corridor and have a time overlap.
-
------
-
-### Pseudo-code for Finding Trip Matches
-
-```
-// FUNCTION to find matches for a given trip
+FUNCTION to find matches for a given trip
 FUNCTION find_matches(user_trip_id) {
 
   // 1. Fetch the details of the user's trip
