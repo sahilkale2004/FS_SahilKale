@@ -20,7 +20,7 @@ Student commute optimizer (full Stack)
 
 ---
 
-## 3. Sequence flow — find & chat (short)
+## 3. Sequence flow — find & chat 
 
 1. Student A creates a trip (origin, destination, depart window). Frontend POSTs to `/trips/create`.
 2. API stores trip in Postgres (route geometry returned from Routing API) and pushes job to `matching` queue.
