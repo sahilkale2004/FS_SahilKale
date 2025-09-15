@@ -49,57 +49,78 @@
 
 ## 5. PostGIS schema (Pseudocode)    This will be used as backend
 
-// User flow
-FUNCTION createUser(college_id, pseudonym, real_name, profile_meta):
-    user.id = generateUUID()
-    user.college_id = college_id
-    user.pseudonym = pseudonym
-    user.real_name_hash = hash(real_name)
-    user.profile_meta = profile_meta
-    user.created_at = currentTimestamp()
-    SAVE user
-    RETURN user
+To find potential matches for a user's trip, you can use the following pseudo-code, which leverages the spatial indexing and functions provided by PostGIS. This process identifies other trips that share a significant portion of the same route corridor and have a time overlap.
 
+-----
 
-// Trip flow
-FUNCTION createTrip(user_id, origin_point, destination_point, depart_window, seats):
-    trip.id = generateUUID()
-    trip.user_id = user_id
-    trip.origin = origin_point
-    trip.destination = destination_point
-    trip.route_geom = callRoutingAPI(origin_point, destination_point)
-    trip.depart_start = depart_window.start
-    trip.depart_end = depart_window.end
-    trip.seats_available = seats
-    trip.status = "planned"
-    trip.created_at = currentTimestamp()
-    SAVE trip
-    RETURN trip
+### Pseudo-code for Finding Trip Matches
 
+```
+// FUNCTION to find matches for a given trip
+FUNCTION find_matches(user_trip_id) {
 
-// Matching trips (simplified)
-FUNCTION findMatches(new_trip):
-    candidate_trips = queryTripsWithinRadius(new_trip.route_geom)
-    scored_trips = []
-    FOR each trip IN candidate_trips:
-        overlap = computeRouteOverlap(new_trip.route_geom, trip.route_geom)
-        IF overlap > threshold:
-            scored_trips.append({trip, overlap})
-    SORT scored_trips BY overlap DESC
-    RETURN topN(scored_trips)
+  // 1. Fetch the details of the user's trip
+  user_trip = SELECT * FROM trips WHERE id = user_trip_id;
 
+  // 2. Define the search parameters
+  corridor_width = 50 meters; // How wide the "corridor" is
+  time_buffer = 15 minutes;   // How much time overlap is needed
+  
+  // 3. Find other trips that spatially overlap
+  // This query uses ST_DWithin to efficiently find trips within a corridor
+  potential_matches = SELECT * FROM trips
+    WHERE
+      id != user_trip_id AND // Exclude the user's own trip
+      status = 'planned' AND  // Only look for active trips
+      ST_DWithin(
+        user_trip.route_geom,
+        trips.route_geom,
+        corridor_width,
+        false // Do not use sphere calculations for performance
+      );
 
-// Reservation / joining a trip
-FUNCTION joinTrip(trip_id, user_id):
-    trip = getTrip(trip_id)
-    IF trip.seats_available > 0 AND trip.status == "planned":
-        reserveSeat(trip, user_id)
-        trip.seats_available -= 1
-        SAVE trip
-        RETURN "success"
-    ELSE:
-        RETURN "no seats available"
+  // 4. Refine the matches by checking for time overlap
+  matches_with_time_overlap = [];
 
+  FOR EACH match IN potential_matches {
+    
+    // Check if the departure times overlap
+    time_overlap_start = MAX(user_trip.depart_start, match.depart_start);
+    time_overlap_end   = MIN(user_trip.depart_end, match.depart_end);
+    
+    // If there's a valid time overlap
+    IF (time_overlap_start <= time_overlap_end) {
+
+      // 5. Calculate the route overlap percentage
+      intersection_geom = ST_Intersection(user_trip.route_geom, match.route_geom);
+      overlap_length_meters = ST_Length(intersection_geom, false);
+      
+      // Calculate overlap percentage based on the shorter trip's length
+      user_trip_length = ST_Length(user_trip.route_geom, false);
+      match_trip_length = ST_Length(match.route_geom, false);
+      
+      shorter_trip_length = MIN(user_trip_length, match_trip_length);
+      
+      overlap_percentage = (overlap_length_meters / shorter_trip_length) * 100;
+
+      // 6. Add the match to the list if overlap is significant
+      IF (overlap_percentage > 50) { // Example threshold
+        matches_with_time_overlap.push({
+          trip_id: match.id,
+          overlap_percentage: overlap_percentage,
+          overlap_time: {
+            start: time_overlap_start,
+            end: time_overlap_end
+          }
+        });
+      }
+    }
+  }
+
+  // 7. Return the final list of sorted matches
+  RETURN SORT_BY(matches_with_time_overlap, 'overlap_percentage', DESC);
+}
+```
 
 ## 6. Key PostGIS queries (core matching)    This will be used to find nearby matches for the student 
 
