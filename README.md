@@ -101,8 +101,6 @@ FUNCTION joinTrip(trip_id, user_id):
         RETURN "no seats available"
 
 ```
----
-
 
 ## 6. Key PostGIS queries (core matching)    This will be used to find nearby matches for the student 
 
@@ -190,7 +188,6 @@ FUNCTION findMatches(trip_id):
     // Step 5: Return top 10
     RETURN first 10 items from matches
 
----
 
 
 ```
