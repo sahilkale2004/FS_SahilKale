@@ -6,7 +6,7 @@
 
 **Key value proposition for reviewers:** reduces vehicle count, cuts student commute costs, and demonstrates practical geospatial engineering (PostGIS) and real-time features (WebSocket). Good technical depth while respecting privacy.
 
----
+
 
 ## 2. Architecture — visual
 
@@ -15,7 +15,7 @@
 
 **Notes:** the Match Service uses PostGIS spatial indices for corridor and overlap checks; it queries Redis for active, in-memory trip info to keep latency low.
 
----
+
 
 ## 3. Sequence flow — find & chat 
 
@@ -30,7 +30,7 @@
 
 
 
----
+
 
 ## 4. UI mockups & storyboard
 
@@ -43,7 +43,7 @@
 
 <img width="615" height="400" alt="image" src="https://github.com/user-attachments/assets/ca08cad8-fee1-45f3-b712-13445f31ab86" />
 
----
+
 
 
 
