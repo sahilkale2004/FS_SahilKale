@@ -37,7 +37,7 @@ Student commute optimizer (full Stack)
 
 ## 4. UI mockups & storyboard
 
-<img width="526" height="612" alt="image" src="https://github.com/user-attachments/assets/96b01ab9-f816-4c05-875f-2972136d4495" />
+<img width="426" height="412" alt="image" src="https://github.com/user-attachments/assets/96b01ab9-f816-4c05-875f-2972136d4495" />
 
 
 
@@ -117,6 +117,7 @@ FUNCTION findCandidates(new_trip_route, new_trip_id):
 
     RETURN up to 200 candidates
 
+---
 
 **Compute overlap length with a candidate (SQL snippet)**
 
