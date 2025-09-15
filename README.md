@@ -48,9 +48,10 @@
 
 
 ## 5. PostGIS schema (Pseudocode)    This will be used as backend
+```
 
-FUNCTION to find matches for a given trip
-FUNCTION find_matches(user_trip_id) {
+  FUNCTION to find matches for a given trip
+  FUNCTION find_matches(user_trip_id) {
 
   // 1. Fetch the details of the user's trip
   user_trip = SELECT * FROM trips WHERE id = user_trip_id;
@@ -113,6 +114,7 @@ FUNCTION find_matches(user_trip_id) {
   // 7. Return the final list of sorted matches
   RETURN SORT_BY(matches_with_time_overlap, 'overlap_percentage', DESC);
 }
+```
 ```
 
 ## 6. Key PostGIS queries (core matching)    This will be used to find nearby matches for the student 
