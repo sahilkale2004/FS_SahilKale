@@ -202,5 +202,5 @@ FUNCTION findMatches(trip_id):
 * **Minimal location sharing:** discovery coordinates rounded to 50m to avoid precise tracking.
 * **Mutual reveal:** identity only revealed when both parties explicitly consent.
 * **Moderation:** one-click reporting, automated filters, manual review pipeline.
-```
+
 
