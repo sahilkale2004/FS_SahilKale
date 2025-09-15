@@ -118,7 +118,7 @@ FUNCTION findCandidates(new_trip_route, new_trip_id):
                ADD (trip.id, trip.user_id, trip.route_geom) TO candidates
 
     RETURN up to 200 candidates
-    ```
+    
 
 
 ```
@@ -147,9 +147,9 @@ FUNCTION computeOverlapRatio(tripA_id, tripB_id):
     RETURN overlapRatio
 ```
 
----
+```
 
-## 7. Compact matching pseudocode    This is used to find matches for the students
+## 8. Compact matching pseudocode    This is used to find matches for the students
 
 ```
 FUNCTION findMatches(trip_id):
@@ -195,7 +195,7 @@ FUNCTION findMatches(trip_id):
 
 ```
 
-## 8. Safety & privacy 
+## 9. Safety & privacy 
 
 * **Pseudonym + College verification:** ensures each account is linked to a real student but identity is hidden.
 * **Minimal location sharing:** discovery coordinates rounded to 50m to avoid precise tracking.
