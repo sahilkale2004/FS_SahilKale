@@ -115,7 +115,6 @@
   RETURN SORT_BY(matches_with_time_overlap, 'overlap_percentage', DESC);
 }
 ```
-```
 
 ## 6. Key PostGIS queries (core matching)    This will be used to find nearby matches for the student 
 
