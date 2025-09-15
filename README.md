@@ -102,11 +102,12 @@ FUNCTION joinTrip(trip_id, user_id):
         RETURN "success"
     ELSE:
         RETURN "no seats available"
+
+```
 ---
 
 
-
-**## 6. Key PostGIS queries (core matching) **
+## 6. Key PostGIS queries (core matching) 
 
 **Find candidates within corridor (\~500 meters)**
 
@@ -120,6 +121,7 @@ FUNCTION findCandidates(new_trip_route, new_trip_id):
                ADD (trip.id, trip.user_id, trip.route_geom) TO candidates
 
     RETURN up to 200 candidates
+    ```
 
 ---
 **
