@@ -40,7 +40,6 @@ Student commute optimizer (full Stack)
 <img width="426" height="412" alt="image" src="https://github.com/user-attachments/assets/96b01ab9-f816-4c05-875f-2972136d4495" />
 
 ```
----
 
 ```
 **Storyboard (3 panels)**
