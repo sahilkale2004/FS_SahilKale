@@ -49,7 +49,7 @@
 
 ## 5. PostGIS schema (Pseudocode)    This will be used as backend
 
-```// User flow
+// User flow
 FUNCTION createUser(college_id, pseudonym, real_name, profile_meta):
     user.id = generateUUID()
     user.college_id = college_id
@@ -100,7 +100,6 @@ FUNCTION joinTrip(trip_id, user_id):
     ELSE:
         RETURN "no seats available"
 
-```
 
 ## 6. Key PostGIS queries (core matching)    This will be used to find nearby matches for the student 
 
@@ -116,7 +115,7 @@ FUNCTION findCandidates(new_trip_route, new_trip_id):
                ADD (trip.id, trip.user_id, trip.route_geom) TO candidates
 
     RETURN up to 200 candidates
-    
+
 
 
 ## 7. Compute overlap length with a candidate (SQL snippet)
@@ -141,6 +140,7 @@ FUNCTION computeOverlapRatio(tripA_id, tripB_id):
     overlapRatio = overlapLength / MIN(lengthA, lengthB)
 
     RETURN overlapRatio
+
 
 
 
@@ -184,6 +184,7 @@ FUNCTION findMatches(trip_id):
 
     // Step 5: Return top 10
     RETURN first 10 items from matches
+
 
 
 
