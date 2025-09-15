@@ -195,7 +195,8 @@ FUNCTION findMatches(trip_id):
 
 
 ```
-**## 8. Scoring — quick math explanation (showing trade-offs)******
+
+## 8. Scoring — quick math explanation (showing trade-offs)
 
 * If routes overlap 50% (0.5), time window overlap 0.8, proximity 0.5 → `score = 0.6*0.5 + 0.3*0.8 + 0.1*0.5 = 0.3 + 0.24 + 0.05 = 0.59` — a strong match.
 * Judges will appreciate a clear threshold rationale (e.g. `>0.35` accepts reasonable detours but avoids weak matches).
@@ -212,5 +213,5 @@ FUNCTION findMatches(trip_id):
 * **Mutual reveal:** identity only revealed when both parties explicitly consent.
 * **Moderation:** one-click reporting, automated filters, manual review pipeline.
 
-* ```
+```
 
