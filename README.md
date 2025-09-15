@@ -120,9 +120,10 @@ FUNCTION findCandidates(new_trip_route, new_trip_id):
     RETURN up to 200 candidates
     ```
 
----
-**
-**Compute overlap length with a candidate (SQL snippet)****
+
+```
+```
+## 7. Compute overlap length with a candidate (SQL snippet)
 
 FUNCTION computeOverlapRatio(tripA_id, tripB_id):
 
@@ -144,6 +145,7 @@ FUNCTION computeOverlapRatio(tripA_id, tripB_id):
     overlapRatio = overlapLength / MIN(lengthA, lengthB)
 
     RETURN overlapRatio
+```
 
 ---
 
