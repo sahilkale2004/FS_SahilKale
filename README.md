@@ -28,15 +28,18 @@ Student commute optimizer (full Stack)
 4. Student A opens a match → WebSocket channel created (chat room tied to match id) → anonymous chat begins.
 5. Student fixes the ride.
 
-   <img width="283" height="432" alt="image" src="https://github.com/user-attachments/assets/e3749c92-4688-4d7e-8500-3bbaf0bb4073" />
+<img width="283" height="432" alt="image" src="https://github.com/user-attachments/assets/c340226c-a809-42cb-b1be-eb27104abb2f" />
+
+
 
 
 ---
 
 ## 4. UI mockups & storyboard
 
+<img width="526" height="612" alt="image" src="https://github.com/user-attachments/assets/96b01ab9-f816-4c05-875f-2972136d4495" />
 
-```<img width="1024" height="1024" alt="Gemini_Generated_Image_gghz1rgghz1rgghz" src="https://github.com/user-attachments/assets/fa198986-b3a3-40e0-b313-4d049eed3d43" />
+
 
 
 **Storyboard (3 panels)**
