@@ -42,6 +42,8 @@ Student commute optimizer (full Stack)
 
 
 
+ 
+
 **Storyboard (3 panels)**
 
 <img width="615" height="367" alt="image" src="https://github.com/user-attachments/assets/ca08cad8-fee1-45f3-b712-13445f31ab86" />
@@ -102,7 +104,9 @@ FUNCTION joinTrip(trip_id, user_id):
         RETURN "no seats available"
 ---
 
-## 6. Key PostGIS queries (core matching)
+
+
+**## 6. Key PostGIS queries (core matching) **
 
 **Find candidates within corridor (\~500 meters)**
 
@@ -118,8 +122,8 @@ FUNCTION findCandidates(new_trip_route, new_trip_id):
     RETURN up to 200 candidates
 
 ---
-
-**Compute overlap length with a candidate (SQL snippet)**
+**
+**Compute overlap length with a candidate (SQL snippet)****
 
 FUNCTION computeOverlapRatio(tripA_id, tripB_id):
 
@@ -143,8 +147,8 @@ FUNCTION computeOverlapRatio(tripA_id, tripB_id):
     RETURN overlapRatio
 
 ---
-
-## 7. Compact matching pseudocode 
+**
+## 7. Compact matching pseudocode** 
 
 ```
 FUNCTION findMatches(trip_id):
@@ -188,14 +192,14 @@ FUNCTION findMatches(trip_id):
 ```
 ---
 
-## 8. Scoring — quick math explanation (showing trade-offs)
+**## 8. Scoring — quick math explanation (showing trade-offs)**
 
 * If routes overlap 50% (0.5), time window overlap 0.8, proximity 0.5 → `score = 0.6*0.5 + 0.3*0.8 + 0.1*0.5 = 0.3 + 0.24 + 0.05 = 0.59` — a strong match.
 * Judges will appreciate a clear threshold rationale (e.g. `>0.35` accepts reasonable detours but avoids weak matches).
 
 ---
-
-## 9. Safety & privacy 
+**
+## 9. Safety & privacy **
 
 * **Pseudonym + College verification:** ensures each account is linked to a real student but identity is hidden.
 * **Minimal location sharing:** discovery coordinates rounded to 50m to avoid precise tracking.
