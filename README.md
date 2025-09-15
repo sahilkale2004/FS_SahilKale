@@ -36,9 +36,9 @@
 
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/96b01ab9-f816-4c05-875f-2972136d4495" />
 
-```
 
-```
+
+
 **Storyboard (3 panels)**
 
 <img width="615" height="400" alt="image" src="https://github.com/user-attachments/assets/ca08cad8-fee1-45f3-b712-13445f31ab86" />
