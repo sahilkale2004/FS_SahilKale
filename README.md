@@ -141,9 +141,8 @@ FUNCTION computeOverlapRatio(tripA_id, tripB_id):
     overlapRatio = overlapLength / MIN(lengthA, lengthB)
 
     RETURN overlapRatio
-```
 
-```
+
 
 ## 8. Compact matching pseudocode    This is used to find matches for the students
 
